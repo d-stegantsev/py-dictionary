@@ -21,7 +21,7 @@ class Dictionary:
 
         self.table[index] = (key, value)
 
-    def __getitem__(self, key: Any) -> None:
+    def __getitem__(self, key: Any) -> Any:
         index = hash(key) % self.size
         initial_index = index
 
@@ -32,7 +32,7 @@ class Dictionary:
             if index == initial_index:
                 break
 
-        raise KeyError(f"Ключ '{key}' не знайдено.")
+        raise KeyError(f"Key '{key}' not found.")
 
     def __len__(self) -> int:
         return self.count
